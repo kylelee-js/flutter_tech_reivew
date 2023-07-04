@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sample_project/screen/splash_screen.dart';
+import 'package:sample_project/screen/default_animation_screen.dart';
+import 'package:sample_project/screen/default_counter_screen.dart';
+import 'package:sample_project/screen/hook_animation_screen.dart';
+import 'package:sample_project/screen/hook_counter_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -30,13 +33,31 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0; // 상태 초기값
+  void goToDefaultAnimationScreen() {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => const DefaultAnimationScreen(
+            key: Key("DefaultAnimationScreen"),
+            duration: Duration(seconds: 1))));
+  }
 
-  void _incrementCounter() {
-    // 이거 없으면 build 실행안됨 -> 화면 업데이트 없음
-    // setState(() => _counter++);
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const SplashScreen()));
+  void goToDefaultCounterScreen() {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => const DefaultCounterScreen(
+              key: Key("DefaultAnimationScreen"),
+            )));
+  }
+
+  void goToHookAnimationScreen() {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => const HookAnimationScreen(
+              key: Key("HookAnimationScreen"),
+            )));
+  }
+
+  void goToHookCounterScreen() {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) =>
+            const HookCounterScreen(key: Key("HookCounterScreen"))));
   }
 
   @override
@@ -54,20 +75,24 @@ class _MyHomePageState extends State<MyHomePage> {
           // Antd Col과 유사함 - vertical align - 기본적으로 height 100% -> 부모 높이 - mainAxisAlignment flex랑 똑같음
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            MaterialButton(
+              onPressed: goToDefaultAnimationScreen,
+              child: const Text("goToDefaultAnimationScreen"),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            MaterialButton(
+              onPressed: goToDefaultCounterScreen,
+              child: const Text("goToDefaultCounterScreen"),
+            ),
+            MaterialButton(
+              onPressed: goToHookAnimationScreen,
+              child: const Text("goToHookAnimationScreen"),
+            ),
+            MaterialButton(
+              onPressed: goToHookCounterScreen,
+              child: const Text("goToHookCounterScreen"),
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }

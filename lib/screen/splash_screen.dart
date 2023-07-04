@@ -8,7 +8,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         color: Colors.red,
-        child: Text('asd'),
+        child: const Text('asd'),
       ),
     );
   }
