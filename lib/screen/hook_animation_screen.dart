@@ -7,11 +7,9 @@ class HookAnimationScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 상태 선언 with ValueNotifier
-    final controller =
-        useAnimationController(duration: const Duration(seconds: 1));
-    final animation =
-        useAnimation(CurvedAnimation(parent: controller, curve: Curves.easeIn));
+    // 상태 선언 with ValueNotifier - flutter hook이 기본 제공하는 훅
+    final controller = useAnimationController(duration: const Duration(seconds: 1));
+    final animation = useAnimation(CurvedAnimation(parent: controller, curve: Curves.easeIn));
 
     useEffect(() {
       return () {
@@ -20,9 +18,7 @@ class HookAnimationScreen extends HookWidget {
       };
     }, []);
 
-    void goBack() {
-      Navigator.pop(context);
-    }
+    void goBack() => Navigator.pop(context);
 
     return Scaffold(
       body: Center(

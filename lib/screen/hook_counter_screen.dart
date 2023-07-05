@@ -20,9 +20,7 @@ class HookCounterScreen extends HookWidget {
       };
     }, [counter.value]);
 
-    void goBack() {
-      Navigator.pop(context);
-    }
+    void goBack() => Navigator.pop(context);
 
     return Scaffold(
       body: Center(

@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 // 상태를 가지는 위젯 객체
 class DefaultAnimationScreen extends StatefulWidget {
-  const DefaultAnimationScreen({required Key key, required this.duration})
-      : super(key: key);
+  const DefaultAnimationScreen({required Key key, required this.duration}) : super(key: key);
   final Duration duration;
 
   @override
@@ -11,8 +10,7 @@ class DefaultAnimationScreen extends StatefulWidget {
 }
 
 // 상태 객체
-class _DefaultAnimationScreenState extends State<DefaultAnimationScreen>
-    with SingleTickerProviderStateMixin {
+class _DefaultAnimationScreenState extends State<DefaultAnimationScreen> with SingleTickerProviderStateMixin {
   // 상태 선언
   late AnimationController _controller;
   late Animation<double> _animation = CurvedAnimation(
@@ -96,8 +94,7 @@ class RaisedButton extends StatelessWidget {
   final Function() onPressed;
   final Widget child;
 
-  const RaisedButton({Key? key, required this.child, required this.onPressed})
-      : super(key: key);
+  const RaisedButton({Key? key, required this.child, required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

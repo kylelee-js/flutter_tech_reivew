@@ -16,14 +16,10 @@ class _DefaultCounterScreenState extends State<DefaultCounterScreen> {
 
   // 상태를 변경하는 매서드 선언 with setState
   void onPress() {
-    setState(() {
-      counter++;
-    });
+    setState(() => counter++);
   }
 
-  void goBack() {
-    Navigator.pop(context);
-  }
+  void goBack() => Navigator.pop(context);
 
   @override
   Widget build(BuildContext context) {
